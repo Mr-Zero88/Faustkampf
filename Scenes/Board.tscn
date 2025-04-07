@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://ivqxogin5sph"]
+
+[ext_resource type="Script" uid="uid://c80eb8fxhj4xm" path="res://Scripts/board.gd" id="1_ml4tp"]
+[ext_resource type="PackedScene" uid="uid://cpui2qu3dr7ij" path="res://Scenes/Tile.tscn" id="2_igt3p"]
+
+[node name="Board" type="Node2D"]
+script = ExtResource("1_ml4tp")
+Tile = ExtResource("2_igt3p")
