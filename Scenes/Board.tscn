@@ -5,4 +5,6 @@
 
 [node name="Board" type="Node2D"]
 script = ExtResource("1_ml4tp")
+GridSize = Vector2(0, 0)
+TileSize = 25.0
 Tile = ExtResource("2_igt3p")

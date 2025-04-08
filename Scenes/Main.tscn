@@ -4,11 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://ccrf0r3cdxh5t" path="res://Scenes/Deck.tscn" id="2_idj7w"]
 
 [node name="Main" type="Node2D"]
+texture_filter = 2
 
 [node name="Board" parent="." instance=ExtResource("1_r150o")]
-position = Vector2(350, 84)
-scale = Vector2(2, 2)
-TileSize = 25.0
+texture_filter = 2
+position = Vector2(586, 159)
+scale = Vector2(3, 3)
+GridSize = Vector2(8, 8)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

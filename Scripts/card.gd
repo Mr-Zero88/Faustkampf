@@ -48,7 +48,10 @@ func makeCard():
 		tagContainer.add_child(ti)
 	
 	var sSprite = Sprite2D.new()
-	sSprite.texture = load(iconPaths[icon])
+	if(icon == 0):
+		sSprite.texture = null
+	else:
+		sSprite.texture = load(iconPaths[icon + 1])
 	board.add_child(sSprite)
 	
 	for m in moveset:
