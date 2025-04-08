@@ -9,7 +9,7 @@ texture_filter = 2
 [node name="Board" parent="." instance=ExtResource("1_r150o")]
 texture_filter = 2
 position = Vector2(586, 159)
-scale = Vector2(3, 3)
+scale = Vector2(2, 2)
 GridSize = Vector2(8, 8)
 
 [node name="Camera2D" type="Camera2D" parent="."]

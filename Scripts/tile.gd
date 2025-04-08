@@ -4,6 +4,8 @@ class_name Tile
 
 var hover: bool = false;
 
+var player: int = 0
+
 @export var select: bool = false:
 	set(value):
 		select = value
