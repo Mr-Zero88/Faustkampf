@@ -14,8 +14,10 @@ func _ready():
 			genTile(x, y)
 
 func placePice(x: int, y: int, type: Global.PieceType):
-	#var tile = getTile(x, y)
-	var tile = self.find_child("tile_0_0")
+	var tile = getTile(x, y)
+	#var tile = self.find_child("tile_0_0")
+	if(tile == null):
+		return
 	tile.type = type
 
 func getTile(x: int, y: int) -> Tile:
@@ -25,6 +27,7 @@ func genTile(x: int, y: int):
 	print("X: ", x, " Y: ", y)
 	var tile: Node = Tile.instantiate()
 	tile.set_name("tile_" + str(x) + "_" + str(y))
+	
 	tile.position = Vector2(TileSize / 2 + x * (TileSize + TileGap), TileSize / 2 + y * (TileSize + TileGap))
 	tile.connect("click", func():
 		print("click", x, y)

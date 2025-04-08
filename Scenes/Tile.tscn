@@ -1,8 +1,45 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpui2qu3dr7ij"]
+[gd_scene load_steps=17 format=3 uid="uid://cpui2qu3dr7ij"]
 
 [ext_resource type="Script" uid="uid://bmbhok2im4eqs" path="res://Scripts/tile.gd" id="1_t0yj4"]
+[ext_resource type="Script" uid="uid://b2ex618rnyam8" path="res://Scripts/piece.gd" id="2_iof5j"]
+[ext_resource type="Texture2D" uid="uid://cjkj6kebmb422" path="res://art/icons/roock.png" id="3_6r1mx"]
+[ext_resource type="Texture2D" uid="uid://ds3rfi3f60kpv" path="res://art/icons/bishop.png" id="3_er2vu"]
+[ext_resource type="Texture2D" uid="uid://8f0lvvkn3xh0" path="res://art/icons/queen.png" id="3_o0nvw"]
+[ext_resource type="Texture2D" uid="uid://s46ok4vvu38v" path="res://art/icons/king.png" id="3_r4md0"]
+[ext_resource type="Texture2D" uid="uid://bvvoq7qmhc4vf" path="res://art/icons/tower.png" id="4_ctyow"]
+[ext_resource type="Texture2D" uid="uid://cf7xgfmuog3o0" path="res://art/icons/horse.png" id="5_5y5lw"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5v3qr"]
+[sub_resource type="Resource" id="Resource_r4md0"]
+script = ExtResource("2_iof5j")
+icon = ExtResource("3_6r1mx")
+metadata/_custom_type_script = "uid://b2ex618rnyam8"
+
+[sub_resource type="Resource" id="Resource_o0nvw"]
+script = ExtResource("2_iof5j")
+icon = ExtResource("4_ctyow")
+metadata/_custom_type_script = "uid://b2ex618rnyam8"
+
+[sub_resource type="Resource" id="Resource_er2vu"]
+script = ExtResource("2_iof5j")
+icon = ExtResource("5_5y5lw")
+metadata/_custom_type_script = "uid://b2ex618rnyam8"
+
+[sub_resource type="Resource" id="Resource_jvlbh"]
+script = ExtResource("2_iof5j")
+icon = ExtResource("3_er2vu")
+metadata/_custom_type_script = "uid://b2ex618rnyam8"
+
+[sub_resource type="Resource" id="Resource_6r1mx"]
+script = ExtResource("2_iof5j")
+icon = ExtResource("3_o0nvw")
+metadata/_custom_type_script = "uid://b2ex618rnyam8"
+
+[sub_resource type="Resource" id="Resource_ctyow"]
+script = ExtResource("2_iof5j")
+icon = ExtResource("3_r4md0")
+metadata/_custom_type_script = "uid://b2ex618rnyam8"
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_t0yj4"]
 size = Vector2(25, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5v3qr"]
@@ -10,9 +47,20 @@ size = Vector2(25, 25)
 
 [node name="Tile" type="Area2D"]
 script = ExtResource("1_t0yj4")
+type = 1
+Pieces = Dictionary[int, ExtResource("2_iof5j")]({
+1: SubResource("Resource_r4md0"),
+2: SubResource("Resource_o0nvw"),
+3: SubResource("Resource_er2vu"),
+4: SubResource("Resource_jvlbh"),
+5: SubResource("Resource_6r1mx"),
+6: SubResource("Resource_ctyow")
+})
 
-[node name="TextureRect" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_5v3qr")
+[node name="Background" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_t0yj4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5v3qr")
+
+[node name="icon" type="Sprite2D" parent="."]

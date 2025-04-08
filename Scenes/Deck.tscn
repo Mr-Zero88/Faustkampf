@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccrf0r3cdxh5t"]
+
+[ext_resource type="Script" uid="uid://b82e2sp28t50q" path="res://Scripts/deck.gd" id="1_57cf8"]
+[ext_resource type="PackedScene" uid="uid://cybfsxvts7ysq" path="res://Scenes/Card.tscn" id="2_0g7pp"]
+
+[node name="Deck" type="Node2D"]
+script = ExtResource("1_57cf8")
+
+[node name="Hand" type="Node2D" parent="."]
+position = Vector2(75, 100)
+
+[node name="card" parent="Hand" instance=ExtResource("2_0g7pp")]
+
+[node name="card2" parent="Hand" instance=ExtResource("2_0g7pp")]
+position = Vector2(0, 150)
+
+[node name="card3" parent="Hand" instance=ExtResource("2_0g7pp")]
+position = Vector2(0, 300)
+
+[node name="card4" parent="Hand" instance=ExtResource("2_0g7pp")]
+position = Vector2(0, 450)

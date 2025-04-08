@@ -1,0 +1,102 @@
+[gd_scene load_steps=12 format=3 uid="uid://cybfsxvts7ysq"]
+
+[ext_resource type="Script" uid="uid://gu81jlu3aktn" path="res://Scripts/card.gd" id="1_pjytt"]
+[ext_resource type="Shader" path="res://scene.gdshader" id="2_b4rk6"]
+[ext_resource type="Texture2D" uid="uid://u1jg0dxkgm81" path="res://art/backCard.png" id="3_6lcat"]
+[ext_resource type="Texture2D" uid="uid://h30opbnytdxp" path="res://art/baseCard.png" id="4_ut1v0"]
+[ext_resource type="FontFile" uid="uid://bf64a70vdos1a" path="res://dogicapixelbold.otf" id="5_vno60"]
+[ext_resource type="FontFile" uid="uid://btppl5bgw12cq" path="res://dogicapixel.otf" id="6_l0gnn"]
+[ext_resource type="Texture2D" uid="uid://cejfbecvpg4cu" path="res://art/checkers.png" id="7_is7yf"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_m7jmp"]
+viewport_path = NodePath("card/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xlvrw"]
+resource_local_to_scene = true
+shader = ExtResource("2_b4rk6")
+shader_parameter/FRONT = ExtResource("4_ut1v0")
+shader_parameter/BACK = ExtResource("3_6lcat")
+shader_parameter/VP = SubResource("ViewportTexture_m7jmp")
+shader_parameter/rotation = 1.0
+shader_parameter/hoverZoom = 0.0
+shader_parameter/width = 128.0
+shader_parameter/height = 192.0
+shader_parameter/lean = 0.75
+
+[sub_resource type="LabelSettings" id="LabelSettings_xlvrw"]
+line_spacing = 0.0
+font = ExtResource("5_vno60")
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ni31j"]
+line_spacing = 1.0
+font = ExtResource("6_l0gnn")
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+
+[node name="card" type="Node2D"]
+script = ExtResource("1_pjytt")
+
+[node name="card" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_xlvrw")
+texture = ExtResource("3_6lcat")
+
+[node name="SubViewport" type="SubViewport" parent="card"]
+transparent_bg = true
+snap_2d_transforms_to_pixel = true
+snap_2d_vertices_to_pixel = true
+size = Vector2i(128, 192)
+
+[node name="Control" type="Control" parent="card/SubViewport"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="card/SubViewport/Control"]
+custom_minimum_size = Vector2(128, 192)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="card/SubViewport/Control/MarginContainer"]
+layout_mode = 2
+
+[node name="Container" type="Container" parent="card/SubViewport/Control/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 21)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="title" type="Label" parent="card/SubViewport/Control/MarginContainer/VBoxContainer/Container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Test-name"
+label_settings = SubResource("LabelSettings_xlvrw")
+horizontal_alignment = 1
+
+[node name="tagContainer" type="HBoxContainer" parent="card/SubViewport/Control/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="description" type="Label" parent="card/SubViewport/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "lorem ipsum dolor sit atem, consecitur "
+label_settings = SubResource("LabelSettings_ni31j")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Container2" type="Container" parent="card/SubViewport/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="Control" type="Control" parent="card/SubViewport/Control/MarginContainer/VBoxContainer/Container2"]
+layout_mode = 2
+
+[node name="Checkers" type="Sprite2D" parent="card/SubViewport/Control/MarginContainer/VBoxContainer/Container2/Control"]
+texture = ExtResource("7_is7yf")
